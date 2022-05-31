@@ -106,55 +106,46 @@ main .aside--open .aside__content {
   }
 }
 main .contentContainer {
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
   width: 100%;
   background-color: #262626;
   max-width: 1920px;
-  margin: 0 0.8rem;
+  margin: 0.8rem;
 }
 @media (min-width: 650px) {
   main .contentContainer {
-    margin: 0 1.6rem;
+    margin: 1.6rem;
   }
 }
 @media (min-width: 1000px) {
   main .contentContainer {
-    margin: 0 1.6rem;
+    margin: 1.6rem;
     margin-left: 25.6rem;
   }
 }
 @media (min-width: 1600px) {
   main .contentContainer {
-    margin: 0 4.8rem;
+    margin: 4.8rem;
     margin-left: 28.8rem;
   }
 }
 @media (min-width: 2320px) {
   main .contentContainer {
-    display: grid;
-    grid-template-columns: 1fr 30rem;
-    grid-template-rows: auto;
-    margin-left: auto;
-    margin-right: auto;
+    flex-direction: row-reverse;
+    margin: 4.8rem auto;
     grid-column: 2;
+    gap: 3.2rem;
   }
 }
 main .contentContainer .content {
   width: 100%;
+  height: 100%;
   background-color: #303030;
 }
-@media (min-width: 2320px) {
-  main .contentContainer .content {
-    grid-column: 1;
-  }
-}
 main .contentContainer .content__nav {
-  min-height: 24rem;
-}
-@media (min-width: 2320px) {
-  main .contentContainer .content__nav {
-    grid-column: 2;
-    grid-row: 1;
-  }
+  min-height: 30rem;
+  min-width: 30rem;
+  background-color: #303030;
 }
