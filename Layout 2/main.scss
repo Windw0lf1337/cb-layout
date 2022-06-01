@@ -1,0 +1,179 @@
+
+$size-s: 650px;
+$size-m: 1000px;
+$size-l: 1600px;
+$size-xl: 2320px;
+
+$size-scrollbar-width: 14px;
+
+$size-header-height: 6rem;
+$size-footer-height: 6rem;
+
+$size-aside-width: 24rem;
+
+@mixin screen-s {
+    @media (min-width: #{$size-s}) {
+        @content;
+    }
+}
+@mixin screen-m {
+    @media (min-width: #{$size-m}) {
+        @content;
+    }
+}
+@mixin screen-l {
+    @media (min-width: #{$size-l}) {
+        @content;
+    }
+}
+@mixin screen-xl {
+    @media (min-width: #{$size-xl}) {
+        @content;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 6rem 1fr auto;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: #161616;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar-track, &::-webkit-scrollbar-corner {
+        width: $size-scrollbar-width;
+        background-color: #2c2c2c;
+    }
+    &::-webkit-scrollbar {
+        width: $size-scrollbar-width;
+        background-color: #2c2c2c;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #444444;
+        &:hover {
+            background-color: lighten($color: #444444, $amount: 10);
+        }
+    }
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: $size-header-height;
+    background-color: #222222;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    z-index: 99;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    height: $size-footer-height;
+    background-color: #222222;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    z-index: 99;
+}
+
+main {
+    position: relative;
+    height: 100%;
+    min-height: 120rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    @include screen-xl() {
+        display: grid;
+        grid-template-columns: $size-aside-width 1fr;
+    }
+    aside {
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        transition-duration: 300ms;
+        transition-timing-function: ease-in-out;
+        transition-property: background-color, width, transform;
+        @include screen-m() {
+            width: $size-aside-width;
+        }
+        .aside__content {
+            transition-duration: inherit;
+            transition-timing-function: inherit;
+            transition-property: inherit;
+            transform: translateX(- $size-aside-width);
+            width: $size-aside-width;
+            background-color: #222222;
+            height: 100%;
+            @include screen-m() {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .aside--open {
+        width: 100%;
+        background-color: rgba(0,0,0,.4);
+        .aside__content {
+            transform: translateX(0);
+        }
+        @include screen-m() {
+            width: 0;
+            background-color: transparent;
+        }
+    }
+
+    .contentContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        width: 100%;
+        background-color: #262626;
+        max-width: 1920px;
+        margin: .8rem;
+
+
+        @include screen-s() {
+            margin: 1.6rem;
+        }
+        @include screen-m() {
+            margin: 1.6rem;
+            margin-left: $size-aside-width + 1.6rem;
+        }
+        @include screen-l() {
+            margin: 4.8rem;
+            margin-left: $size-aside-width + 4.8rem;
+        }
+        @include screen-xl() {
+            flex-direction: row-reverse;  
+            margin: 4.8rem auto;
+            grid-column: 2;
+            gap: 3.2rem
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            background-color: #303030;
+            
+        }
+        .content__nav {
+            min-height: 30rem;
+            min-width: 30rem;
+            background-color: #303030;
+        }
+    }
+
+    
+}
