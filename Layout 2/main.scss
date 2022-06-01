@@ -10,6 +10,9 @@ $size-header-height: 6rem;
 $size-footer-height: 6rem;
 
 $size-aside-width: 24rem;
+$size-conetnt__nav-width--l: 30rem;
+
+$size-content--max: 128rem;
 
 @mixin screen-s {
     @media (min-width: #{$size-s}) {
@@ -75,6 +78,21 @@ header {
     background-color: #222222;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
     z-index: 99;
+    padding: 0 .8rem;
+    @include screen-s() {
+        padding: 0 1.6rem;
+    }
+    @include screen-l() {
+        padding: 0 4.8rem;
+    }
+    .header__content {
+        height: 100%;
+        width: 100%;
+        background-color: #303030;
+        max-width: $size-content--max;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 footer {
@@ -84,6 +102,22 @@ footer {
     background-color: #222222;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
     z-index: 99;
+    padding: 0 .8rem;    
+    @include screen-s() {
+        padding: 0 1.6rem;
+    }
+    @include screen-l() {
+        padding: 0 4.8rem;
+    }
+    .footer__content {
+        height: 100%;
+        width: 100%;
+        background-color: #303030;
+        
+        max-width: $size-content--max;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 main {
@@ -93,54 +127,14 @@ main {
     width: 100%;
     display: flex;
     flex-direction: row;
-    @include screen-xl() {
-        display: grid;
-        grid-template-columns: $size-aside-width 1fr;
-    }
-    aside {
-        position: absolute;
-        width: 0%;
-        height: 100%;
-        transition-duration: 300ms;
-        transition-timing-function: ease-in-out;
-        transition-property: background-color, width, transform;
-        @include screen-m() {
-            width: $size-aside-width;
-        }
-        .aside__content {
-            transition-duration: inherit;
-            transition-timing-function: inherit;
-            transition-property: inherit;
-            transform: translateX(- $size-aside-width);
-            width: $size-aside-width;
-            background-color: #222222;
-            height: 100%;
-            @include screen-m() {
-                transform: translateX(0);
-            }
-        }
-    }
 
-    .aside--open {
-        width: 100%;
-        background-color: rgba(0,0,0,.4);
-        .aside__content {
-            transform: translateX(0);
-        }
-        @include screen-m() {
-            width: 0;
-            background-color: transparent;
-        }
-    }
-
-    .contentContainer {
+    .main__content {
         display: flex;
         flex-direction: column;
         gap: 1.6rem;
 
         width: 100%;
-        background-color: #262626;
-        max-width: 1920px;
+        // background-color: #262626;
         margin: .8rem;
 
 
@@ -149,31 +143,51 @@ main {
         }
         @include screen-m() {
             margin: 1.6rem;
-            margin-left: $size-aside-width + 1.6rem;
         }
         @include screen-l() {
             margin: 4.8rem;
-            margin-left: $size-aside-width + 4.8rem;
         }
         @include screen-xl() {
-            flex-direction: row-reverse;  
-            margin: 4.8rem auto;
-            grid-column: 2;
-            gap: 3.2rem
+            flex-direction: row-reverse;            
+            max-width: calc($size-content--max + $size-conetnt__nav-width--l + 3.2rem);
+            margin-left: auto;
+            margin-right: auto;
+            flex-direction: row-reverse; 
+            gap: 3.2rem 
         }
 
-        .content {
+        .main__sectionContainer {
             width: 100%;
-            height: 100%;
-            background-color: #303030;
+            height: 100%;            
+            max-width: $size-content--max;
+            margin-left: auto;
+            margin-right: auto;
             
+            .main__section {
+                height: 60rem;
+
+                width: 100%;
+                background-color: #262626;
+                border-bottom: solid 1px white;
+                .section__content {
+                    background-color: #303030;
+                }
+            }
+
         }
-        .content__nav {
+        .main__nav {
+            width: 100%;
             min-height: 30rem;
             min-width: 30rem;
             background-color: #303030;
+            
+            max-width: $size-content--max;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include screen-xl() {
+                width: $size-conetnt__nav-width--l;
+            }
         }
     }
-
-    
 }
