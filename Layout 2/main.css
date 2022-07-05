@@ -60,6 +60,11 @@ header .header__content {
   margin-left: auto;
   margin-right: auto;
 }
+@media (min-width: 2320px) {
+  header .header__content {
+    max-width: 161.2rem;
+  }
+}
 
 footer {
   position: relative;
@@ -87,6 +92,11 @@ footer .footer__content {
   max-width: 128rem;
   margin-left: auto;
   margin-right: auto;
+}
+@media (min-width: 2320px) {
+  footer .footer__content {
+    max-width: 161.2rem;
+  }
 }
 
 main {

@@ -12,7 +12,9 @@ $size-footer-height: 6rem;
 $size-aside-width: 24rem;
 $size-conetnt__nav-width--l: 30rem;
 
-$size-content--max: 128rem;
+$size-content-max: 128rem;
+$size-content-max--xl: 161.2rem;
+
 
 @mixin screen-s {
     @media (min-width: #{$size-s}) {
@@ -89,9 +91,13 @@ header {
         height: 100%;
         width: 100%;
         background-color: #303030;
-        max-width: $size-content--max;
+        max-width: $size-content-max;
         margin-left: auto;
         margin-right: auto;
+
+        @include screen-xl() {
+            max-width: $size-content-max--xl;
+        }
     }
 }
 
@@ -113,10 +119,12 @@ footer {
         height: 100%;
         width: 100%;
         background-color: #303030;
-        
-        max-width: $size-content--max;
+        max-width: $size-content-max;
         margin-left: auto;
         margin-right: auto;
+        @include screen-xl() {
+            max-width: $size-content-max--xl;
+        }
     }
 }
 
@@ -149,7 +157,7 @@ main {
         }
         @include screen-xl() {
             flex-direction: row-reverse;            
-            max-width: calc($size-content--max + $size-conetnt__nav-width--l + 3.2rem);
+            max-width: calc($size-content-max + $size-conetnt__nav-width--l + 3.2rem);
             margin-left: auto;
             margin-right: auto;
             flex-direction: row-reverse; 
@@ -159,7 +167,7 @@ main {
         .main__sectionContainer {
             width: 100%;
             height: 100%;            
-            max-width: $size-content--max;
+            max-width: $size-content-max;
             margin-left: auto;
             margin-right: auto;
             
@@ -181,7 +189,7 @@ main {
             min-width: 30rem;
             background-color: #303030;
             
-            max-width: $size-content--max;
+            max-width: $size-content-max;
             margin-left: auto;
             margin-right: auto;
 
