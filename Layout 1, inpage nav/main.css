@@ -41,6 +41,32 @@ header {
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   z-index: 99;
 }
+header .header__content {
+  background-color: #303030;
+  height: 100%;
+  margin: 0 0.8rem;
+}
+@media (min-width: 650px) {
+  header .header__content {
+    margin: 0 1.6rem;
+  }
+}
+@media (min-width: 1000px) {
+  header .header__content {
+    margin: 0 1.6rem;
+  }
+}
+@media (min-width: 1600px) {
+  header .header__content {
+    margin: 0 4.8rem;
+    margin-left: 1.6rem;
+  }
+}
+@media (min-width: 2320px) {
+  header .header__content {
+    margin: 0 1.6rem;
+  }
+}
 
 footer {
   position: relative;
@@ -49,6 +75,32 @@ footer {
   background-color: #222222;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   z-index: 99;
+}
+footer .footer__content {
+  background-color: #303030;
+  height: 100%;
+  margin: 0 0.8rem;
+}
+@media (min-width: 650px) {
+  footer .footer__content {
+    margin: 0 1.6rem;
+  }
+}
+@media (min-width: 1000px) {
+  footer .footer__content {
+    margin: 0 1.6rem;
+  }
+}
+@media (min-width: 1600px) {
+  footer .footer__content {
+    margin: 0 4.8rem;
+    margin-left: 1.6rem;
+  }
+}
+@media (min-width: 2320px) {
+  footer .footer__content {
+    margin: 0 1.6rem;
+  }
 }
 
 main {
